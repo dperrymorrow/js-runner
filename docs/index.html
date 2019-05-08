@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/prism.css" />
+  </head>
+  <body>
+
+    <div id="app">
+      <div class="editor pane">
+        <pre id="editor-preview"></pre>
+        <textarea spellcheck="false" id="editor-input">
+import "moment";
+// import any npm module
+
+console.log("Console output:", { hello: true });
+"date was " + moment("2018-11-23").fromNow();
+        </textarea>
+      </div>
+
+      <div class="runner pane">
+        <button id="clear">Clear Output</button>
+        <pre id="runner-result"></pre>
+        <ul id="runner-logs"></ul>
+      </div>
+    </div>
+
+    <div id="script-container"></div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js"></script>
+
+    <script type="module">
+      import app from "./js/app.js";
+      app();
+    </script>
+  </body>
+</html>

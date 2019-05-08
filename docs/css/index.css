@@ -1,0 +1,135 @@
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80%{
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70%{
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60%{
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+body {
+  color: white;
+  background-color: var(--bgColor);
+}
+
+* {
+  font-size: var(--fontSize);
+  font-family: Monaco, monospace;
+  box-sizing: border-box;
+}
+
+#app {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app .pane {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  overflow: auto;
+}
+
+.runner #clear {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+button {
+  border: none;
+  background-color: var(--blue);
+  text-transform: uppercase;
+  padding: var(--paddingSm);
+  font-size: .8em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--lightBlue);
+}
+
+button:focus {
+  outline: none;
+}
+
+#runner-result, #runner-logs {
+  height: 50%;
+  overflow: auto;
+}
+
+#runner-result {
+  margin: 0;
+  background-color: var(--grayDark);
+  padding: var(--padding);
+  color: var(--white);
+}
+
+#runner-logs {
+  background-color: var(--gray);
+  margin: 0;
+  padding: 0;
+}
+
+#runner-result.error {
+  color: var(--white);
+  border: 2px solid var(--red);
+  line-height: var(--lineHeight);
+  animation: shake .3s ease;
+}
+
+#runner-logs li {
+  padding: var(--paddingSm);
+  padding-left: var(--padding);
+  border-bottom: 1px solid var(--black);
+  list-style: none;
+  white-space: pre-wrap;
+  color: var(--grayLight);
+}
+
+#editor-input, #editor-preview {
+  position: absolute;
+  line-height: var(--lineHeight);
+  top: 0;
+  left: 0;
+  font-size: var(--fontSize);
+  width: 100%;
+  height: 100%;
+  font-family: Monaco, monospace;
+  background-color: var(--bgColor);
+  border: none;
+  padding: var(--padding);
+  margin: 0;
+  resize: none;
+  white-space: pre-wrap;
+  word-break: break-all;
+  caret-color: var(--orange);
+}
+
+#editor-input {
+  background: transparent;
+  color: rgba(255, 255, 255, 0);
+}
+
+#editor-input:focus {
+  outline: none;
+}
+
+#editor-input::selection {
+  background-color: rgba(240, 141, 73, 0.15);
+}
